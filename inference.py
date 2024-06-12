@@ -8,9 +8,11 @@ Original file is located at
 """
 
 import torch
+import torchvision
 import matplotlib.pyplot as plt
 from model import CNN
 
+def inference():
 # Load model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = CNN().to(device)
