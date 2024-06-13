@@ -18,7 +18,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = CNN().to(device)
 model.eval()
 
-# Load test data and make predictions
+# Load test data and making the predictions
 test_data = torchvision.datasets.MNIST('mnist_data', train=False, download=True, transform=torchvision.transforms.ToTensor())
 data, target = test_data[21]
 data = data.unsqueeze(0).to(device)
@@ -26,7 +26,7 @@ output = model(data)
 prediction = output.argmax(dim=1, keepdim=True).item()
 print(f'Prediction: {prediction}')
 
-# Display the image
+# image display
 image = data.squeeze(0).squeeze(0).cpu().numpy()
 plt.imshow(image, cmap='gray')
 plt.show()
